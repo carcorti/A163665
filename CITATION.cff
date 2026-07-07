@@ -1,0 +1,65 @@
+cff-version: 1.2.0
+message: "If you use this code, data, validation package, or manuscript, please cite this repository and the accompanying paper. The Zenodo DOI is a pre-release placeholder until the first archived GitHub release is created."
+type: software
+title: "A163665: C17 segmented search and validation package"
+authors:
+  - family-names: "Corti"
+    given-names: "Carlo"
+    email: "carlo.corti@outlook.com"
+abstract: >-
+  C17 segmented search and validation package supporting a computational
+  extension of OEIS sequence A163665, the sequence of integers k such that
+  k = prime(phi(sigma(pi(k)))). The search is performed over prime indices n
+  using the exact fixed-point criterion phi(sigma(n)) = n. The package reports
+  eight new terms and records a finite negative certification through
+  prime(405234954223) = 11776117514717, subject to the correctness of the
+  validated production kernel and the integrity of the recorded official run
+  manifest and validation summary.
+keywords:
+  - OEIS
+  - A163665
+  - computational number theory
+  - integer sequences
+  - Euler totient function
+  - sum of divisors
+  - prime index
+  - C17
+  - validation
+license: "MIT"
+version: "v1.0"
+date-released: 2026-07-07
+repository-code: "https://github.com/carcorti/A163665"
+url: "https://github.com/carcorti/A163665"
+identifiers:
+  - type: other
+    value: "Zenodo DOI placeholder: 10.5281/zenodo.xxxxxxxx"
+    description: "Replace with the real Zenodo DOI after the first GitHub release has been archived by Zenodo."
+preferred-citation:
+  type: article
+  title: "Computational Extension of OEIS Sequence A163665: Eight New Terms via a Segmented Prime-Index Search"
+  authors:
+    - family-names: "Corti"
+      given-names: "Carlo"
+      email: "carlo.corti@outlook.com"
+  year: 2026
+  month: 7
+  notes: "Pre-release manuscript in paper/A163665_v6.tex; Zenodo DOI placeholder 10.5281/zenodo.xxxxxxxx to be replaced after archive publication."
+references:
+  - type: database
+    title: "Sequence A163665: Numbers k such that k = prime(phi(sigma(pi(k))))"
+    authors:
+      - name: "OEIS Foundation Inc."
+    url: "https://oeis.org/A163665"
+  - type: software
+    title: "primecount: fast prime counting function library and command-line program"
+    authors:
+      - family-names: "Walisch"
+        given-names: "Kim"
+    version: "7.10"
+    url: "https://github.com/kimwalisch/primecount"
+  - type: software
+    title: "PARI/GP computer algebra system"
+    authors:
+      - name: "The PARI Group"
+    version: "2.15.4"
+    url: "https://pari.math.u-bordeaux.fr/"

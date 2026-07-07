@@ -1,0 +1,29 @@
+# Build artifacts
+a163665
+a163665_san
+*.o
+
+# Temporary/local outputs
+*.tmp
+*.log
+
+# Local campaign run directories not included in the public package
+runs/
+
+# System/editor files
+.DS_Store
+Thumbs.db
+*~
+# LaTeX build artifacts
+*.aux
+*.bbl
+*.bcf
+*.blg
+*.fls
+*.fdb_latexmk
+*.out
+*.run.xml
+*.synctex.gz
+*.toc
+*.lof
+*.lot
