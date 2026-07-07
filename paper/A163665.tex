@@ -282,9 +282,8 @@ using
 together with the additional warning flags in \texttt{src/Makefile} and
 \texttt{-fopenmp}.  The independent scripts were run with PARI/GP 2.15.4
 and primecount 7.10 in the local validation environment.  These version
-strings document the package validation environment; final publication
-should also record the exact Git commit or release tag used for the
-archived package.
+strings document the package validation environment; the public archive
+for this package is release \texttt{v1.0.1}.
 
 The validation matrix is:
 \begin{center}
@@ -455,7 +454,7 @@ than this is supported by the present computation.
 
 \section{Reproducibility}
 
-The raw GitHub-ready package contains the production source, Makefile,
+The public release package contains the production source, Makefile,
 data tables, validation reports, and independent scripts required to
 audit the finite computation.  The main local artifacts are:
 \[
@@ -486,10 +485,10 @@ The package validation report records the following commands as passed:
 \end{array}
 \]
 The large local subsegment directories generated during the campaign are
-not included in the raw public package.  Their aggregate certified
+not included in the public package.  Their aggregate certified
 content is represented by the run manifest and validation summary.
-The final public release should pin a Git commit or release tag and
-replace the Zenodo placeholder in the bibliography by an actual DOI.
+Release \texttt{v1.0.1} is archived with Zenodo DOI
+\url{https://doi.org/10.5281/zenodo.21242104}.
 
 \section{Conclusion}
 
@@ -510,17 +509,14 @@ campaign and its recorded manifests.
 
 The code, OEIS snapshot excerpt and confirmation notes, result tables,
 manifests, validation summaries, candidate b-file, and independent
-positive-hit checkers are part of the project package and are intended to
-be included in the GitHub repository and archive listed in the References
-when those public artifacts are finalized.  The snapshot material is
+positive-hit checkers are part of the public project package archived in
+the GitHub repository and Zenodo record listed in the References.  The
+snapshot material is
 recorded in \texttt{docs/confirmation\_A163665.md}, not as a separate
-standalone input-snapshot file.  Until the public repository tag and
-Zenodo DOI are assigned, the manuscript should be read as a pre-release
-computational note whose negative certificate is auditable from the local
-package but not yet from an immutable public archive.  No additional
-dataset is needed to reproduce the finite claims stated in this note,
-apart from standard toolchain components and the external programs used
-by the recorded validation commands.
+standalone input-snapshot file.  No additional dataset is needed to
+reproduce the finite claims stated in this note, apart from standard
+toolchain components and the external programs used by the recorded
+validation commands.
 
 \section*{AI use disclosure}
 
@@ -662,10 +658,9 @@ used as source material, July 6, 2026.
 \bibitem{cortiA163665Package2026}
 C. Corti,
 \emph{A163665: C17 segmented search and validation package},
-GitHub repository and Zenodo archive, 2026.
+GitHub repository and Zenodo archive, release \texttt{v1.0.1}, 2026.
 \url{https://github.com/carcorti/A163665}.
-Zenodo DOI placeholder: \texttt{10.5281/zenodo.xxxxxxxx}, to be
-replaced after archive publication.
+\url{https://doi.org/10.5281/zenodo.21242104}.
 
 \bibitem{miller1976}
 G. L. Miller,

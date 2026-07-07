@@ -181,8 +181,8 @@ make -C src test THREADS=4
 make -C src sanitize
 gp -q validation/verify_hits.gp
 validation/verify_prime_mapping.sh
-pdflatex -interaction=nonstopmode -halt-on-error -draftmode -output-directory=/tmp GitHub/paper/A163665_v6.tex
-pdflatex -interaction=nonstopmode -halt-on-error -draftmode -output-directory=/tmp GitHub/paper/A163665_v6.tex
+pdflatex -interaction=nonstopmode -halt-on-error -output-directory=GitHub/paper GitHub/paper/A163665.tex
+pdflatex -interaction=nonstopmode -halt-on-error -output-directory=GitHub/paper GitHub/paper/A163665.tex
 make -C src clean
 ```
 
@@ -192,7 +192,7 @@ Data checks:
 data/b163665.txt has a real final blank line.
 The last eight k-values in data/b163665.txt match data/certified_terms.tsv.
 results/A163665_campaign_hits.tsv matches data/certified_terms.tsv, ignoring comment/header lines.
-paper/A163665_v6.tex compiles cleanly after two draft-mode LaTeX passes.
+paper/A163665.tex compiles cleanly after two LaTeX passes and produces paper/A163665.pdf.
 No scratch directories named tmp, temp, build, dist, .cache, __pycache__, or runs remain under the package root.
 ```
 
@@ -208,15 +208,17 @@ These independent scripts verify all 28 consolidated positive terms, including t
 GitHub package SHA-256, excluding validation/validation_summary.md itself to avoid a self-referential checksum:
 
 ```text
+1a1dbe176bc233b499d35a57db7513f2941c99ab9759f177830c9149be99005b  .gitattributes
 8c32e9785d7f0919943d6fb4a053dc619bd2521993b4d8ed3885de0fc9b0b6b2  .gitignore
-c0c51879c2b6aa8d6ab16fc5ba8ed3ca1998d748ab01dbf7537988c51cd69ec0  README.md
-5da7cde8f442bd7e8635e5336dc13c9781f0fd9946f8b34f3423c84df09793ca  CITATION.cff
+3b4d6b8cc861620cfb2ffd0ad61b048ab13700eb773061c2432e4731c065a7ca  README.md
+b5241b675e5d0915f5b3140f794f38e88fd9f75c504967dd7fb6106c9e854013  CITATION.cff
 1db7ea53590c61186548979643d1892af163e23c8254a198be6b1e50ae189911  LICENSE
 afd499cd98241e57e76166160cb763a5bce52eb76327c7f2c52828fcb4fb889e  data/b163665.txt
 c07764a2724bc6493399abc13c0d21a9bd0e963de54729151a1dd01dc006d368  data/certified_terms.tsv
 2f8cdca9f510622e6f858e0fd49accf3a70195a12812377f69ce28dd0ac581f0  docs/confirmation_A163665.md
 50df4ab13938d7fee53201bf814b7d00c639c4296eac98901ac3d9c674f95305  docs/strategy_A163665.md
-5266b97df230277b5e386e51c265998813a1a5aafd48e0ca30e1ec512d6c244a  paper/A163665_v6.tex
+f9d09fe8e9d30da75c7d88c63f73949d26d6423087324df86bf2e4e5a4c82603  paper/A163665.pdf
+4fd44ff26223a43e53b4142ddb3cad431012c8e62d9a9646fe8b2916d3099169  paper/A163665.tex
 352f0e414ec085030a5268e96ddc1fd6f6728e02df6d1c7d567c3a885ddbab81  results/A163665_campaign_hits.tsv
 af8cf84c1be09fa6beab60f9ec223cbd32e7a7b20797ab8bb048e324290791ca  src/Makefile
 b72b98eb016f59ac6f44262e2cef7df86bdaf40a8274d1c63c457e0e45a3a21f  src/a163665.c

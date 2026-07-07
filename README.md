@@ -2,48 +2,40 @@
 
 Author: Carlo Corti.
 
-This repository contains the C17 segmented search code, data tables, selected validation artifacts, and the pre-release manuscript supporting a computational extension of OEIS A163665.
+This repository contains the C17 segmented search code, data tables, selected validation artifacts, and the manuscript supporting a computational extension of OEIS A163665.
 
-OEIS A163665 is the sequence of integers \(k\) such that
+OEIS A163665 is the sequence of integers `k` such that
 
-\[
-k = \operatorname{prime}(\varphi(\sigma(\pi(k)))).
-\]
+> `k = prime(phi(sigma(pi(k))))`.
 
-The computation uses the exact reduction to prime indices: a prime-index \(n\) is a hit precisely when
+The computation uses the exact reduction to prime indices: a prime-index `n` is a hit precisely when
 
-\[
-\varphi(\sigma(n)) = n,
-\]
+> `phi(sigma(n)) = n`,
 
-and the corresponding OEIS term is \(k=\operatorname{prime}(n)\).
+and the corresponding OEIS term is `k = prime(n)`.
 
 ## Main result
 
-The production campaign searched the contiguous prime-index interval
+The production campaign searched the contiguous prime-index interval:
 
-\[
-234954224 \le n \le 405234954223.
-\]
+> `234954224 <= n <= 405234954223`.
 
 It found eight new hit indices:
 
-| New OEIS index | Hit index \(n\) | Term \(k=\operatorname{prime}(n)\) |
-|---:|---:|---:|
-| 21 | 2147483648 | 50685770167 |
-| 22 | 3889036800 | 94206075193 |
-| 23 | 4389396480 | 106882008719 |
-| 24 | 21946982400 | 571264143487 |
-| 25 | 47416320000 | 1272242879459 |
-| 26 | 92177326080 | 2536961181761 |
-| 27 | 133145026560 | 3715374607207 |
-| 28 | 331914240000 | 9576704442589 |
+| New OEIS index | Hit index `n` | Term `k = prime(n)` |
+| --------------:| -------------:| -------------------:|
+| 21             | 2147483648    | 50685770167         |
+| 22             | 3889036800    | 94206075193         |
+| 23             | 4389396480    | 106882008719        |
+| 24             | 21946982400   | 571264143487        |
+| 25             | 47416320000   | 1272242879459       |
+| 26             | 92177326080   | 2536961181761       |
+| 27             | 133145026560  | 3715374607207       |
+| 28             | 331914240000  | 9576704442589       |
 
 Subject to the correctness of the validated C17 production kernel and to the integrity of the recorded official run manifests, the computation certifies that there are no further terms through
 
-\[
-\operatorname{prime}(405234954223)=11776117514717.
-\]
+> `prime(405234954223) = 11776117514717`.
 
 The consolidated candidate b-file is:
 
@@ -58,6 +50,7 @@ The certified-term table for the newly reported terms is:
 ```text
 .
 ├── CITATION.cff
+├── .gitattributes
 ├── data
 │   ├── b163665.txt
 │   └── certified_terms.tsv
@@ -68,7 +61,8 @@ The certified-term table for the newly reported terms is:
 ├── LICENSE
 ├── README.md
 ├── paper
-│   └── A163665_v6.tex
+│   ├── A163665.pdf
+│   └── A163665.tex
 ├── results
 │   └── A163665_campaign_hits.tsv
 ├── src
@@ -82,19 +76,19 @@ The certified-term table for the newly reported terms is:
     └── verify_prime_mapping.sh
 ```
 
-The manuscript filename under `paper/` is intentionally pre-release at this stage. It should be finalized only after the first GitHub upload, Zenodo activation, GitHub release, and Zenodo archive creation.
+The manuscript source and compiled PDF are in `paper/`.
 
 ## Method
 
-The search is performed over prime indices \(n\), not directly over candidate terms \(k\). The production code applies:
+The search is performed over prime indices `n`, not directly over candidate terms `k`. The production code applies:
 
-- the exact prime-index reduction \(k=\operatorname{prime}(n)\);
-- the parity filter for \(n>1\);
-- multiplicative computation of \(\sigma(n)\);
-- factorization of \(\sigma(n)\);
-- the exact rejection condition \((q-1)\mid n\) for every prime divisor \(q\) of \(\sigma(n)\);
-- exact computation of \(\varphi(\sigma(n))\);
-- conversion from hit index \(n\) to sequence term \(k=\operatorname{prime}(n)\).
+- the exact prime-index reduction `k = prime(n)`;
+- the parity filter for `n > 1`;
+- multiplicative computation of `sigma(n)`;
+- factorization of `sigma(n)`;
+- the exact rejection condition `(q - 1) | n` for every prime divisor `q` of `sigma(n)`;
+- exact computation of `phi(sigma(n))`;
+- conversion from hit index `n` to sequence term `k = prime(n)`.
 
 The C source is in:
 
@@ -116,21 +110,21 @@ The official run-level manifest is:
 
 The reported aggregate validation state is:
 
-| Quantity | Value |
-|---|---:|
-| Official runs | 15 |
-| Certified subsegments | 40500 |
-| Raw \(n\)-width | 405000000000 |
-| Candidates tested | 202500000000 |
-| Unresolved segments | 0 |
-| Failed segments | 0 |
-| New hits | 8 |
-| Reconstructed elapsed total | 22h:12m:58s |
+| Quantity                    | Value        |
+| --------------------------- | ------------:|
+| Official runs               | 15           |
+| Certified subsegments       | 40500        |
+| Raw `n`-width               | 405000000000 |
+| Candidates tested           | 202500000000 |
+| Unresolved segments         | 0            |
+| Failed segments             | 0            |
+| New hits                    | 8            |
+| Reconstructed elapsed total | 22h:12m:58s  |
 
 The positive rows are independently checked by:
 
-- `validation/verify_hits.gp`, which recomputes \(\varphi(\sigma(n))=n\) and checks primality of the corresponding \(k\)-values;
-- `validation/verify_prime_mapping.sh`, which verifies \(k=\operatorname{prime}(n)\) with `primecount`.
+- `validation/verify_hits.gp`, which recomputes `phi(sigma(n)) = n` and checks primality of the corresponding `k`-values;
+- `validation/verify_prime_mapping.sh`, which verifies `k = prime(n)` with `primecount`.
 
 These scripts are independent positive-hit checks. They do not constitute a second exhaustive scan of the non-hit interval. The negative certification rests on the validated segmented C17 campaign and its recorded manifests.
 
@@ -162,15 +156,16 @@ The large local subsegment directories generated during the campaign are not inc
 
 ## Paper
 
-The accompanying pre-release manuscript is:
+The accompanying manuscript files are:
 
-- `paper/A163665_v6.tex`
+- `paper/A163665.tex`
+- `paper/A163665.pdf`
 
 Current title:
 
 > Computational Extension of OEIS Sequence A163665: Eight New Terms via a Segmented Prime-Index Search
 
-The public paper filename is intentionally not finalized yet. After the first GitHub upload, Zenodo activation, GitHub release, and Zenodo archive creation, the repository metadata and manuscript references should be updated with the final release tag and Zenodo DOI.
+The release version is `v1.0.1`.
 
 ## Data and result files
 
@@ -189,11 +184,11 @@ Repository URL intended for publication:
 
 - `https://github.com/carcorti/A163665`
 
-Zenodo DOI placeholder:
+Zenodo DOI:
 
-- `10.5281/zenodo.xxxxxxxx`
+- `https://doi.org/10.5281/zenodo.21242104`
 
-The Zenodo DOI is intentionally still a placeholder in this pre-release package. After Zenodo archives the first GitHub release, replace the placeholder DOI in the paper, `README.md`, and `CITATION.cff`.
+The GitHub repository and Zenodo archive identify release `v1.0.1`.
 
 ## Citation
 
@@ -201,7 +196,7 @@ Please cite the repository using the metadata in:
 
 - `CITATION.cff`
 
-Until the Zenodo archive has been created, the DOI entry remains a placeholder and must not be treated as an active DOI.
+The DOI entry above is active for the archived release.
 
 ## License
 
